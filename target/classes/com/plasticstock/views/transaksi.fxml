@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.plasticstock.controllers.TransaksiController">
+
+    <VBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" spacing="16">
+        <padding><Insets top="16" right="0" bottom="0" left="0"/></padding>
+
+        <Label text="Transaksi Barang" styleClass="page-title"/>
+
+        <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+            <VBox styleClass="form-card" prefWidth="320" spacing="14">
+                <Label text="Form Transaksi" styleClass="card-title"/>
+                <Label fx:id="lblNoTransaksi" text="" visible="false" managed="false"/>
+
+                <VBox spacing="6">
+                    <Label text="Jenis Transaksi *" styleClass="form-label"/>
+                    <ComboBox fx:id="cmbJenis" maxWidth="Infinity" styleClass="form-input"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label text="Barang *" styleClass="form-label"/>
+                    <ComboBox fx:id="cmbBarang" maxWidth="Infinity" styleClass="form-input"
+                              promptText="Pilih barang..."/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label text="Jumlah *" styleClass="form-label"/>
+                    <TextField fx:id="txtJumlah" styleClass="form-input" promptText="0"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label text="Harga Satuan (Rp) *" styleClass="form-label"/>
+                    <TextField fx:id="txtHargaSatuan" styleClass="form-input" promptText="0"/>
+                </VBox>
+
+                <HBox styleClass="total-box" alignment="CENTER_LEFT" spacing="12">
+                    <Label text="Total:" styleClass="total-label"/>
+                    <Label fx:id="lblTotal" text="Rp 0" styleClass="total-value"/>
+                </HBox>
+
+                <VBox spacing="6">
+                    <Label text="Keterangan" styleClass="form-label"/>
+                    <TextArea fx:id="txtKeterangan" styleClass="form-input"
+                              prefHeight="70" promptText="Opsional..."/>
+                </VBox>
+
+                <Button text="Simpan Transaksi" styleClass="btn-primary"
+                        maxWidth="Infinity" onAction="#handleSimpan"/>
+            </VBox>
+
+            <VBox spacing="12" HBox.hgrow="ALWAYS">
+                <Label text="Riwayat Transaksi (100 terakhir)" styleClass="card-title"/>
+
+                <TableView fx:id="tblTransaksi" VBox.vgrow="ALWAYS" styleClass="data-table">
+                    <columns>
+                        <TableColumn fx:id="colNo"      text="No. Transaksi" prefWidth="150"/>
+                        <TableColumn fx:id="colJenis"   text="Jenis"         prefWidth="80"/>
+                        <TableColumn fx:id="colBarang"  text="Barang"        prefWidth="160"/>
+                        <TableColumn fx:id="colJumlah"  text="Jumlah"        prefWidth="70"/>
+                        <TableColumn fx:id="colTotal"   text="Total (Rp)"    prefWidth="120"/>
+                        <TableColumn fx:id="colTanggal" text="Tanggal"       prefWidth="140"/>
+                    </columns>
+                    <placeholder><Label text="Belum ada transaksi"/></placeholder>
+                </TableView>
+            </VBox>
+
+        </HBox>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,680 @@
+/* ======================================================================
+   PlasticStockManager - Elegant Fantasy Anime Interface
+   Inspired by calm cinematic fantasy RPG interfaces and Frieren ambience
+   ====================================================================== */
+
+.root {
+    -fx-parchment: #F8F0DC;
+    -fx-ivory: #FFF9EA;
+    -fx-gold: #D7B56D;
+    -fx-gold-soft: #E8D39A;
+    -fx-navy: #172238;
+    -fx-navy-2: #24324C;
+    -fx-blue-gray: #6F8194;
+    -fx-mist: #DDE5E4;
+    -fx-violet-shadow: #6C6689;
+    -fx-ink: #2D2A2E;
+    -fx-muted: #766E62;
+    -fx-danger-color: #A95B55;
+
+    -fx-font-family: "Noto Sans", "Segoe UI", sans-serif;
+    -fx-background-color: #F8F0DC;
+    -fx-text-fill: #2D2A2E;
+    -fx-focus-color: #D7B56D;
+    -fx-faint-focus-color: transparent;
+}
+
+.root-pane,
+.app-shell {
+    -fx-background-color:
+        radial-gradient(center 78% 12%, radius 70%, rgba(232, 211, 154, 0.46), transparent 62%),
+        radial-gradient(center 18% 92%, radius 72%, rgba(111, 129, 148, 0.26), transparent 58%),
+        linear-gradient(from 0% 0% to 100% 100%, #F8F0DC, #E9DED0 44%, #CBD4D6 100%);
+}
+
+.workspace,
+.main-content,
+.content-pane {
+    -fx-background-color: transparent;
+}
+
+.label {
+    -fx-text-fill: #2D2A2E;
+}
+
+/* ======================================================================
+   FANTASY GLASS PANELS
+   ====================================================================== */
+
+.glass-pane,
+.card-pane,
+.form-card,
+.total-box {
+    -fx-background-color:
+        linear-gradient(from 0% 0% to 100% 100%, rgba(255, 249, 234, 0.78), rgba(221, 229, 228, 0.52)),
+        rgba(255, 249, 234, 0.64);
+    -fx-background-radius: 24;
+    -fx-border-color: rgba(215, 181, 109, 0.28);
+    -fx-border-radius: 24;
+    -fx-border-width: 1;
+    -fx-effect:
+        dropshadow(three-pass-box, rgba(23, 34, 56, 0.16), 26, 0.15, 0, 14),
+        innershadow(three-pass-box, rgba(255, 255, 255, 0.30), 14, 0.12, 0, 1);
+}
+
+.glass-pane:hover,
+.card-pane:hover,
+.form-card:hover {
+    -fx-border-color: rgba(215, 181, 109, 0.46);
+    -fx-effect:
+        dropshadow(three-pass-box, rgba(23, 34, 56, 0.18), 30, 0.17, 0, 16),
+        innershadow(three-pass-box, rgba(255, 255, 255, 0.34), 16, 0.12, 0, 1);
+}
+
+.card-pane {
+    -fx-background-color:
+        linear-gradient(from 0% 0% to 100% 100%, rgba(255, 249, 234, 0.86), rgba(221, 229, 228, 0.62)),
+        rgba(248, 240, 220, 0.66);
+}
+
+.form-card,
+.table-panel {
+    -fx-background-color:
+        linear-gradient(from 0% 0% to 100% 100%, rgba(255, 249, 234, 0.84), rgba(203, 212, 214, 0.50)),
+        rgba(255, 249, 234, 0.62);
+}
+
+/* ======================================================================
+   LOGIN - FRIEREN-LIKE CINEMATIC CALM
+   ====================================================================== */
+
+.login-overlay {
+    -fx-background-color:
+        radial-gradient(center 78% 28%, radius 48%, rgba(232, 211, 154, 0.12), transparent 62%),
+        linear-gradient(from 0% 0% to 100% 100%, rgba(23, 34, 56, 0.34), rgba(108, 102, 137, 0.14), rgba(248, 240, 220, 0.08)),
+        linear-gradient(from 0% 100% to 100% 0%, rgba(23, 34, 56, 0.24), transparent 44%, rgba(215, 181, 109, 0.10));
+}
+
+.login-card {
+    -fx-background-color:
+        linear-gradient(from 0% 0% to 100% 100%, rgba(255, 249, 234, 0.42), rgba(221, 229, 228, 0.18)),
+        rgba(255, 249, 234, 0.24);
+    -fx-background-radius: 28;
+    -fx-border-color: rgba(232, 211, 154, 0.30);
+    -fx-border-radius: 28;
+    -fx-effect:
+        dropshadow(three-pass-box, rgba(23, 34, 56, 0.24), 30, 0.14, 0, 14),
+        dropshadow(three-pass-box, rgba(232, 211, 154, 0.12), 20, 0.10, 0, 0),
+        innershadow(three-pass-box, rgba(255, 255, 255, 0.22), 12, 0.10, 0, 1);
+}
+
+.login-card .label,
+.login-card .button,
+.login-card .text-field,
+.login-card .password-field,
+.login-card .check-box {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+}
+
+.login-card .title-text {
+    -fx-font-family: "Cinzel", "Georgia", serif;
+}
+
+.login-card .modern-text-field {
+    -fx-background-color: rgba(255, 249, 234, 0.50);
+    -fx-border-color: rgba(232, 211, 154, 0.32);
+}
+
+.login-card .modern-text-field:focused {
+    -fx-background-color: rgba(255, 249, 234, 0.62);
+    -fx-border-color: rgba(232, 211, 154, 0.58);
+}
+
+.magic-particle {
+    -fx-background-color: rgba(232, 211, 154, 0.62);
+    -fx-background-radius: 99;
+    -fx-effect: dropshadow(three-pass-box, rgba(232, 211, 154, 0.34), 12, 0.24, 0, 0);
+}
+
+.particle-one {
+    -fx-pref-width: 5;
+    -fx-pref-height: 5;
+    -fx-translate-x: 760;
+    -fx-translate-y: 150;
+}
+
+.particle-two {
+    -fx-pref-width: 4;
+    -fx-pref-height: 4;
+    -fx-translate-x: 1040;
+    -fx-translate-y: 235;
+    -fx-opacity: 0.72;
+}
+
+.particle-three {
+    -fx-pref-width: 7;
+    -fx-pref-height: 7;
+    -fx-translate-x: 910;
+    -fx-translate-y: 470;
+    -fx-opacity: 0.46;
+}
+
+.particle-four {
+    -fx-pref-width: 4;
+    -fx-pref-height: 4;
+    -fx-translate-x: 680;
+    -fx-translate-y: 610;
+    -fx-opacity: 0.60;
+}
+
+.particle-five {
+    -fx-pref-width: 6;
+    -fx-pref-height: 6;
+    -fx-translate-x: 1130;
+    -fx-translate-y: 610;
+    -fx-opacity: 0.50;
+}
+
+/* ======================================================================
+   TYPOGRAPHY
+   ====================================================================== */
+
+.page-title,
+.brand-title,
+.sidebar-brand-title,
+.title-text {
+    -fx-font-family: "Cinzel", "Georgia", serif;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2D2A2E;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 249, 234, 0.48), 10, 0.16, 0, 2);
+}
+
+.title-text {
+    -fx-font-size: 34px;
+}
+
+.page-title {
+    -fx-font-size: 31px;
+}
+
+.page-subtitle,
+.section-subtitle,
+.normal-text {
+    -fx-font-family: "Noto Sans", "Segoe UI", sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #766E62;
+}
+
+.subtitle-text,
+.section-title,
+.card-title,
+.form-label {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+    -fx-text-fill: #4E5E73;
+    -fx-font-weight: bold;
+}
+
+.subtitle-text {
+    -fx-font-size: 13px;
+}
+
+.brand-title {
+    -fx-font-size: 50px;
+    -fx-text-fill: #FFF9EA;
+    -fx-effect:
+        dropshadow(three-pass-box, rgba(23, 34, 56, 0.48), 18, 0.18, 0, 7),
+        dropshadow(three-pass-box, rgba(215, 181, 109, 0.28), 18, 0.14, 0, 0);
+}
+
+.brand-subtitle {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(255, 249, 234, 0.88);
+    -fx-effect: dropshadow(three-pass-box, rgba(23, 34, 56, 0.34), 8, 0.12, 0, 3);
+}
+
+.sidebar-brand-title {
+    -fx-font-size: 27px;
+    -fx-text-fill: #FFF9EA;
+}
+
+.sidebar-brand-subtitle,
+.micro-label,
+.feed-badge {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(255, 249, 234, 0.78);
+}
+
+.section-title,
+.card-title {
+    -fx-font-size: 17px;
+}
+
+.form-label {
+    -fx-font-size: 12px;
+}
+
+/* ======================================================================
+   SIDEBAR
+   ====================================================================== */
+
+.sidebar {
+    -fx-background-color:
+        radial-gradient(center 88% 8%, radius 58%, rgba(215, 181, 109, 0.24), transparent 60%),
+        linear-gradient(from 0% 0% to 100% 100%, rgba(23, 34, 56, 0.97), rgba(36, 50, 76, 0.96)),
+        rgba(23, 34, 56, 0.96);
+    -fx-background-radius: 0 28 28 0;
+    -fx-border-color: transparent rgba(232, 211, 154, 0.24) transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(23, 34, 56, 0.26), 30, 0.14, 10, 0);
+}
+
+.clock-card {
+    -fx-background-color: rgba(255, 249, 234, 0.12);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(232, 211, 154, 0.22);
+    -fx-border-radius: 20;
+    -fx-padding: 18;
+}
+
+.sidebar-welcome {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFF9EA;
+}
+
+.clock-text {
+    -fx-font-family: "Cinzel", "Georgia", serif;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E8D39A;
+    -fx-effect: dropshadow(three-pass-box, rgba(215, 181, 109, 0.24), 10, 0.14, 0, 0);
+}
+
+.nav-stack {
+    -fx-padding: 8 0 0 0;
+}
+
+.sidebar-btn,
+.sidebar-btn-active,
+.sidebar-btn-danger {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+    -fx-background-color: transparent;
+    -fx-background-radius: 16;
+    -fx-border-color: transparent;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-text-fill: rgba(255, 249, 234, 0.86);
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    -fx-padding: 14 18 14 18;
+    -fx-cursor: hand;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: rgba(255, 249, 234, 0.11);
+    -fx-border-color: rgba(232, 211, 154, 0.22);
+    -fx-text-fill: #FFF9EA;
+    -fx-effect: dropshadow(three-pass-box, rgba(215, 181, 109, 0.14), 12, 0.12, 0, 4);
+}
+
+.sidebar-btn-active {
+    -fx-background-color: linear-gradient(to right, rgba(215, 181, 109, 0.28), rgba(255, 249, 234, 0.10));
+    -fx-border-color: rgba(232, 211, 154, 0.40);
+    -fx-text-fill: #FFF9EA;
+    -fx-effect: dropshadow(three-pass-box, rgba(215, 181, 109, 0.18), 16, 0.12, 0, 6);
+}
+
+.sidebar-btn-danger {
+    -fx-text-fill: #F0C6B7;
+}
+
+.sidebar-btn-danger:hover {
+    -fx-background-color: rgba(169, 91, 85, 0.20);
+    -fx-border-color: rgba(240, 198, 183, 0.34);
+}
+
+/* ======================================================================
+   BUTTONS AND INPUTS
+   ====================================================================== */
+
+.modern-button,
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 18 12 18;
+    -fx-cursor: hand;
+}
+
+.modern-button,
+.btn-primary {
+    -fx-background-color: linear-gradient(to right, #384A68, #D7B56D);
+    -fx-border-color: rgba(255, 249, 234, 0.48);
+    -fx-text-fill: #FFF9EA;
+    -fx-effect:
+        dropshadow(three-pass-box, rgba(23, 34, 56, 0.20), 18, 0.14, 0, 8),
+        innershadow(three-pass-box, rgba(255, 255, 255, 0.20), 10, 0.12, 0, 1);
+}
+
+.modern-button:hover,
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to right, #435876, #E8D39A);
+    -fx-effect: dropshadow(three-pass-box, rgba(23, 34, 56, 0.24), 22, 0.16, 0, 10);
+}
+
+.btn-secondary {
+    -fx-background-color: rgba(111, 129, 148, 0.14);
+    -fx-border-color: rgba(56, 74, 104, 0.22);
+    -fx-text-fill: #384A68;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: rgba(111, 129, 148, 0.22);
+    -fx-border-color: rgba(56, 74, 104, 0.36);
+}
+
+.btn-danger {
+    -fx-background-color: rgba(169, 91, 85, 0.12);
+    -fx-border-color: rgba(169, 91, 85, 0.24);
+    -fx-text-fill: #8D4B46;
+}
+
+.btn-danger:hover {
+    -fx-background-color: rgba(169, 91, 85, 0.18);
+    -fx-border-color: rgba(169, 91, 85, 0.34);
+}
+
+.action-button {
+    -fx-min-width: 140;
+}
+
+.modern-text-field,
+.form-input,
+.text-field,
+.password-field,
+.text-area,
+.combo-box-base {
+    -fx-font-family: "Noto Sans", "Segoe UI", sans-serif;
+    -fx-background-color: rgba(255, 249, 234, 0.74);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(56, 74, 104, 0.18);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-text-fill: #2D2A2E;
+    -fx-prompt-text-fill: rgba(118, 110, 98, 0.58);
+    -fx-padding: 11 14 11 14;
+    -fx-font-size: 13px;
+}
+
+.modern-text-field:focused,
+.form-input:focused,
+.text-field:focused,
+.password-field:focused,
+.text-area:focused,
+.combo-box-base:focused {
+    -fx-background-color: rgba(255, 249, 234, 0.92);
+    -fx-border-color: #D7B56D;
+    -fx-effect: dropshadow(three-pass-box, rgba(215, 181, 109, 0.18), 12, 0.10, 0, 4);
+}
+
+.text-area .content {
+    -fx-background-color: transparent;
+    -fx-background-radius: 16;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2D2A2E;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #FFF9EA;
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(56, 74, 104, 0.20);
+    -fx-border-radius: 16;
+    -fx-padding: 6;
+    -fx-effect: dropshadow(three-pass-box, rgba(23, 34, 56, 0.18), 18, 0.12, 0, 8);
+}
+
+.combo-box-popup .list-cell:hover,
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: rgba(232, 211, 154, 0.34);
+}
+
+.check-box {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+    -fx-text-fill: #51493F;
+}
+
+.check-box .box {
+    -fx-background-color: rgba(255, 249, 234, 0.72);
+    -fx-background-radius: 7;
+    -fx-border-color: rgba(56, 74, 104, 0.24);
+    -fx-border-radius: 7;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #D7B56D;
+    -fx-border-color: #384A68;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #172238;
+}
+
+/* ======================================================================
+   DASHBOARD CARDS
+   ====================================================================== */
+
+.stat-card {
+    -fx-min-height: 170;
+}
+
+.stat-label {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4E5E73;
+}
+
+.stat-value {
+    -fx-font-family: "Cinzel", "Georgia", serif;
+    -fx-font-size: 42px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #24324C;
+}
+
+.stat-sub {
+    -fx-font-size: 12px;
+    -fx-text-fill: #766E62;
+}
+
+.stat-meter {
+    -fx-min-height: 4;
+    -fx-max-height: 4;
+    -fx-background-radius: 99;
+    -fx-background-color: linear-gradient(to right, #384A68, #D7B56D, #E8D39A);
+}
+
+.stat-blue:hover,
+.stat-aqua:hover {
+    -fx-border-color: rgba(215, 181, 109, 0.42);
+}
+
+.stat-warning:hover {
+    -fx-border-color: rgba(108, 102, 137, 0.38);
+}
+
+/* ======================================================================
+   TABLES
+   ====================================================================== */
+
+.table-view,
+.data-table,
+.premium-table {
+    -fx-background-color: rgba(255, 249, 234, 0.62);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(56, 74, 104, 0.14);
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 0;
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-view:focused,
+.data-table:focused {
+    -fx-background-insets: 0;
+    -fx-border-color: rgba(215, 181, 109, 0.28);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to right, rgba(56, 74, 104, 0.42), rgba(215, 181, 109, 0.26));
+    -fx-background-radius: 20 20 0 0;
+    -fx-padding: 4 0 4 0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-font-family: "Quicksand", "Noto Sans", "Segoe UI", sans-serif;
+    -fx-text-fill: #FFF9EA;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 10 12 10;
+}
+
+.table-view .table-cell {
+    -fx-border-color: transparent;
+    -fx-padding: 10 12 10 12;
+    -fx-text-fill: #2D2A2E;
+}
+
+.table-row-cell {
+    -fx-background-color: rgba(255, 249, 234, 0.34);
+    -fx-border-color: transparent transparent rgba(56, 74, 104, 0.06) transparent;
+    -fx-cell-size: 46px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: rgba(221, 229, 228, 0.30);
+}
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(232, 211, 154, 0.22);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(56, 74, 104, 0.22);
+}
+
+.table-row-cell .text {
+    -fx-fill: #2D2A2E;
+}
+
+.table-placeholder {
+    -fx-text-fill: rgba(118, 110, 98, 0.70);
+    -fx-font-size: 13px;
+}
+
+.feed-badge {
+    -fx-background-color: rgba(215, 181, 109, 0.18);
+    -fx-background-radius: 99;
+    -fx-border-color: rgba(215, 181, 109, 0.30);
+    -fx-border-radius: 99;
+    -fx-padding: 7 12 7 12;
+    -fx-text-fill: #384A68;
+}
+
+/* ======================================================================
+   INVENTORY AND TRANSACTION SUBVIEWS
+   ====================================================================== */
+
+.form-card {
+    -fx-padding: 22;
+}
+
+.search-input {
+    -fx-min-height: 44;
+}
+
+.no-transaksi,
+.total-value {
+    -fx-font-family: "Cinzel", "Georgia", serif;
+    -fx-font-weight: bold;
+    -fx-text-fill: #24324C;
+}
+
+.total-box {
+    -fx-background-color: rgba(232, 211, 154, 0.22);
+    -fx-padding: 14;
+}
+
+.total-label {
+    -fx-text-fill: #4E5E73;
+    -fx-font-weight: bold;
+}
+
+/* ======================================================================
+   SCROLLBARS AND DEFAULT CLEANUP
+   ====================================================================== */
+
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-padding: 2;
+}
+
+.scroll-bar .track {
+    -fx-background-color: rgba(56, 74, 104, 0.08);
+    -fx-background-radius: 99;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgba(56, 74, 104, 0.48);
+    -fx-background-radius: 99;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #D7B56D;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button,
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-shape: "";
+}
+
+.separator .line {
+    -fx-border-color: rgba(56, 74, 104, 0.10);
+}
+
+.corner {
+    -fx-background-color: transparent;
+}
+
+.viewport,
+.scroll-pane,
+.anchor-pane,
+.split-pane,
+.titled-pane,
+.tab-pane {
+    -fx-background-color: transparent;
+}

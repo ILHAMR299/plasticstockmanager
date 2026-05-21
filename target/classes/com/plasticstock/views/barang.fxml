@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.plasticstock.controllers.BarangController">
+
+    <VBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" spacing="16">
+        <padding><Insets top="16" right="0" bottom="0" left="0"/></padding>
+
+        <Label text="Data Barang" styleClass="page-title"/>
+
+        <HBox spacing="16" VBox.vgrow="ALWAYS">
+
+            <!-- Form -->
+            <VBox styleClass="form-card" prefWidth="300" spacing="14">
+                <Label text="Form Barang" styleClass="card-title"/>
+
+                <VBox spacing="6">
+                    <Label text="Kode Barang *" styleClass="form-label"/>
+                    <TextField fx:id="txtKode" styleClass="form-input" promptText="Contoh: PLS001"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label text="Nama Barang *" styleClass="form-label"/>
+                    <TextField fx:id="txtNama" styleClass="form-input" promptText="Nama barang"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label text="Kategori" styleClass="form-label"/>
+                    <TextField fx:id="txtKategori" styleClass="form-input" promptText="Misal: Wadah, Botol"/>
+                </VBox>
+                <HBox spacing="8">
+                    <VBox spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="Stok *" styleClass="form-label"/>
+                        <TextField fx:id="txtStok" styleClass="form-input" promptText="0"/>
+                    </VBox>
+                    <VBox spacing="6" prefWidth="80">
+                        <Label text="Satuan" styleClass="form-label"/>
+                        <TextField fx:id="txtSatuan" styleClass="form-input" promptText="pcs"/>
+                    </VBox>
+                </HBox>
+                <VBox spacing="6">
+                    <Label text="Harga Beli (Rp) *" styleClass="form-label"/>
+                    <TextField fx:id="txtHargaBeli" styleClass="form-input" promptText="0"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label text="Harga Jual (Rp) *" styleClass="form-label"/>
+                    <TextField fx:id="txtHargaJual" styleClass="form-input" promptText="0"/>
+                </VBox>
+
+                <HBox spacing="8">
+                    <Button text="💾 Simpan" styleClass="btn-primary"   HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#handleSimpan"/>
+                    <Button text="🗑 Hapus"  styleClass="btn-danger"    HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#handleHapus"/>
+                </HBox>
+                <Button text="➕ Baru" styleClass="btn-secondary" maxWidth="Infinity" onAction="#handleBaru"/>
+            </VBox>
+
+            <!-- Tabel -->
+            <VBox spacing="12" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <TextField fx:id="txtCari" styleClass="form-input search-input"
+                               promptText="🔍 Cari kode / nama barang..." HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <TableView fx:id="tblBarang" VBox.vgrow="ALWAYS" styleClass="data-table">
+                    <columns>
+                        <TableColumn fx:id="colKode"      text="Kode"       prefWidth="90"/>
+                        <TableColumn fx:id="colNama"      text="Nama Barang" prefWidth="180"/>
+                        <TableColumn fx:id="colKategori"  text="Kategori"    prefWidth="110"/>
+                        <TableColumn fx:id="colStok"      text="Stok"        prefWidth="70"/>
+                        <TableColumn fx:id="colSatuan"    text="Satuan"      prefWidth="70"/>
+                        <TableColumn fx:id="colHargaBeli" text="Harga Beli"  prefWidth="110"/>
+                        <TableColumn fx:id="colHargaJual" text="Harga Jual"  prefWidth="110"/>
+                    </columns>
+                    <placeholder><Label text="Belum ada data barang"/></placeholder>
+                </TableView>
+            </VBox>
+
+        </HBox>
+    </VBox>
+</AnchorPane>

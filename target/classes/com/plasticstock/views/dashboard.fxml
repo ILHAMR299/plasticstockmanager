@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.plasticstock.controllers.DashboardController"
+            prefWidth="1200" prefHeight="800"
+            stylesheets="@../css/style.css"
+            styleClass="root-pane, app-shell">
+
+    <left>
+        <VBox styleClass="sidebar, glass-pane" prefWidth="286" spacing="18">
+            <padding><Insets top="28" right="18" bottom="26" left="18"/></padding>
+
+            <VBox spacing="6">
+                <Label text="MyPlastic" styleClass="sidebar-brand-title"/>
+                <Label text="SISTEM STOK PLASTIK" styleClass="sidebar-brand-subtitle"/>
+            </VBox>
+
+            <VBox styleClass="clock-card" spacing="8">
+                <Label fx:id="lblWelcome" text="Welcome, Ilham Romadhon" styleClass="sidebar-welcome" wrapText="true"/>
+                <Label fx:id="lblClock" text="00:00:00" styleClass="clock-text"/>
+                <Label fx:id="lblDate" text="Kamis, 21 Mei 2026" styleClass="micro-label"/>
+            </VBox>
+
+            <VBox spacing="10" styleClass="nav-stack">
+                <Button fx:id="btnDashboard" text="DASHBOARD" styleClass="sidebar-btn, sidebar-btn-active"
+                        maxWidth="Infinity" onAction="#goToDashboard"/>
+                <Button fx:id="btnBarang" text="DATA BARANG" styleClass="sidebar-btn"
+                        maxWidth="Infinity" onAction="#goToBarang"/>
+                <Button fx:id="btnTransaksi" text="TRANSAKSI" styleClass="sidebar-btn"
+                        maxWidth="Infinity" onAction="#goToTransaksi"/>
+            </VBox>
+
+            <Pane VBox.vgrow="ALWAYS"/>
+
+            <Button text="KELUAR" styleClass="sidebar-btn, sidebar-btn-danger" maxWidth="Infinity" onAction="#handleLogout"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane styleClass="workspace">
+            <VBox fx:id="dashboardView" styleClass="main-content" spacing="24">
+                <padding><Insets top="34" right="38" bottom="34" left="38"/></padding>
+
+                <HBox alignment="CENTER_LEFT" spacing="18">
+                    <VBox spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="DASHBOARD SISTEM" styleClass="page-title"/>
+                        <Label text="Pantau stok barang dan transaksi terbaru secara realtime" styleClass="page-subtitle"/>
+                    </VBox>
+                    <Button text="MUAT ULANG" styleClass="modern-button, action-button" onAction="#goToDashboard"/>
+                </HBox>
+
+                <HBox spacing="20">
+                    <VBox fx:id="cardTotal" styleClass="card-pane, stat-card, stat-blue" HBox.hgrow="ALWAYS" spacing="12">
+                        <padding><Insets top="22" right="24" bottom="22" left="24"/></padding>
+                        <Label text="TOTAL BARANG" styleClass="stat-label"/>
+                        <Label fx:id="lblTotalBarang" text="0" styleClass="stat-value"/>
+                        <Label text="Item barang yang terdaftar" styleClass="stat-sub"/>
+                        <Region styleClass="stat-meter"/>
+                    </VBox>
+                    <VBox fx:id="cardLow" styleClass="card-pane, stat-card, stat-warning" HBox.hgrow="ALWAYS" spacing="12">
+                        <padding><Insets top="22" right="24" bottom="22" left="24"/></padding>
+                        <Label text="STOK MENIPIS" styleClass="stat-label"/>
+                        <Label fx:id="lblStokMenipis" text="0" styleClass="stat-value"/>
+                        <Label text="Barang pada batas minimum" styleClass="stat-sub"/>
+                        <Region styleClass="stat-meter"/>
+                    </VBox>
+                    <VBox fx:id="cardToday" styleClass="card-pane, stat-card, stat-aqua" HBox.hgrow="ALWAYS" spacing="12">
+                        <padding><Insets top="22" right="24" bottom="22" left="24"/></padding>
+                        <Label text="TRANSAKSI HARI INI" styleClass="stat-label"/>
+                        <Label fx:id="lblTransaksiHariIni" text="0" styleClass="stat-value"/>
+                        <Label text="Aktivitas masuk dan keluar stok" styleClass="stat-sub"/>
+                        <Region styleClass="stat-meter"/>
+                    </VBox>
+                </HBox>
+
+                <VBox styleClass="glass-pane, table-panel" spacing="16" VBox.vgrow="ALWAYS">
+                    <padding><Insets top="22" right="22" bottom="22" left="22"/></padding>
+                    <HBox alignment="CENTER_LEFT">
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <Label text="TRANSAKSI TERBARU" styleClass="section-title"/>
+                            <Label text="Riwayat pergerakan stok paling baru" styleClass="section-subtitle"/>
+                        </VBox>
+                        <Label text="REALTIME" styleClass="feed-badge"/>
+                    </HBox>
+
+                    <TableView fx:id="tableRecent" VBox.vgrow="ALWAYS" styleClass="data-table, premium-table">
+                        <columns>
+                            <TableColumn text="NO. TRANSAKSI" fx:id="colNoTrans" prefWidth="140">
+                                <cellValueFactory><PropertyValueFactory property="noTransaksi"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="JENIS" fx:id="colJenis" prefWidth="110">
+                                <cellValueFactory><PropertyValueFactory property="jenisTransaksi"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="ID BARANG" fx:id="colBarangId" prefWidth="90">
+                                <cellValueFactory><PropertyValueFactory property="barangId"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="NAMA BARANG" fx:id="colNamaBarang" prefWidth="260">
+                                <cellValueFactory><PropertyValueFactory property="namaBarang"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="JUMLAH" fx:id="colJumlah" prefWidth="90">
+                                <cellValueFactory><PropertyValueFactory property="jumlah"/></cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="TOTAL (RP)" fx:id="colTotal" prefWidth="170">
+                                <cellValueFactory><PropertyValueFactory property="totalHarga"/></cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                        <placeholder><Label text="Belum ada transaksi terbaru" styleClass="table-placeholder"/></placeholder>
+                    </TableView>
+                </VBox>
+            </VBox>
+
+            <AnchorPane fx:id="contentPane" visible="false" managed="false" styleClass="content-pane">
+                <padding><Insets top="34" right="38" bottom="34" left="38"/></padding>
+            </AnchorPane>
+        </StackPane>
+    </center>
+
+</BorderPane>

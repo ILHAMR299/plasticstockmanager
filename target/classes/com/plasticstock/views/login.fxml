@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.plasticstock.controllers.LoginController"
+           prefWidth="1200" prefHeight="800">
+
+    <!-- Video Background -->
+    <MediaView fx:id="mediaView"/>
+
+    <!-- Dark Overlay for Glassmorphism Background effect -->
+    <Region styleClass="login-overlay"/>
+
+    <Pane fx:id="particleLayer" mouseTransparent="true" pickOnBounds="false">
+        <Region styleClass="magic-particle, particle-one"/>
+        <Region styleClass="magic-particle, particle-two"/>
+        <Region styleClass="magic-particle, particle-three"/>
+        <Region styleClass="magic-particle, particle-four"/>
+        <Region styleClass="magic-particle, particle-five"/>
+    </Pane>
+
+    <!-- Login Layout -->
+    <HBox alignment="CENTER" spacing="0">
+
+        <!-- Padding on the far left -->
+        <Region prefWidth="120"/>
+
+        <!-- Left Login Card -->
+        <VBox fx:id="loginCard" styleClass="glass-pane, login-card" alignment="CENTER" spacing="25"
+              maxWidth="400" minWidth="400" maxHeight="480" minHeight="480">
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <Label text="LOGIN" styleClass="title-text"/>
+
+            <VBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="USERNAME" styleClass="subtitle-text"/>
+                <TextField fx:id="txtUsername" styleClass="modern-text-field" promptText="Enter your username"/>
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="PASSWORD" styleClass="subtitle-text"/>
+                <PasswordField fx:id="txtPassword" styleClass="modern-text-field" promptText="Enter your password"/>
+            </VBox>
+
+            <HBox alignment="CENTER_LEFT">
+                <CheckBox text="Remember me" styleClass="check-box"/>
+            </HBox>
+
+            <VBox alignment="CENTER" spacing="15">
+                <VBox.margin>
+                    <Insets top="20"/>
+                </VBox.margin>
+                <Button fx:id="btnLogin" text="Sign In" styleClass="modern-button"
+                        maxWidth="Infinity" onAction="#handleLogin"/>
+                <Label text="A calm inventory grimoire" styleClass="normal-text" style="-fx-font-size: 12px; -fx-opacity: 0.72;"/>
+            </VBox>
+        </VBox>
+
+        <!-- Flexible Spacer to push branding to the right -->
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <!-- Right Branding side -->
+        <VBox alignment="CENTER_RIGHT" spacing="10">
+            <Label text="MyPlastic" styleClass="brand-title"/>
+            <Label text="A quiet archive of goods" styleClass="brand-subtitle"/>
+        </VBox>
+
+        <!-- Padding on the far right -->
+        <Region prefWidth="120"/>
+
+    </HBox>
+</StackPane>
