@@ -219,7 +219,7 @@
 }
 
 .brand-title {
-    -fx-font-size: 50px;
+    -fx-font-size: 45px;
     -fx-text-fill: #FFF9EA;
     -fx-effect:
         dropshadow(three-pass-box, rgba(23, 34, 56, 0.48), 18, 0.18, 0, 7),

@@ -66,7 +66,7 @@
 
         <!-- Right Branding side -->
         <VBox alignment="CENTER_RIGHT" spacing="10">
-            <Label text="MyPlastic" styleClass="brand-title"/>
+            <Label text="MyPlstic" styleClass="brand-title"/>
             <Label text="A quiet archive of goods" styleClass="brand-subtitle"/>
         </VBox>
 
